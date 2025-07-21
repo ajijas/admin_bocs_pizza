@@ -1,15 +1,87 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# BOCS Pizza Admin Panel
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This is the admin panel for BOCS Pizza ordering system with enhanced table booking (dine-in) functionality.
 
-## About Laravel
+## 🍕 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Core Features
+- **Restaurant Management**: Complete restaurant administration system
+- **Order Management**: Handle delivery, takeaway, and dine-in orders
+- **Product Management**: Manage menu items, categories, and pricing
+- **Branch Management**: Multi-branch support with individual settings
+- **Customer Management**: Customer profiles and order history
+- **Delivery Management**: Delivery personnel and route management
+- **POS System**: Point of sale for in-store orders
+- **Reports & Analytics**: Comprehensive business reporting
+
+### 🆕 New Table Booking (Dine-In) Feature
+- **Table Management**: Create and manage restaurant tables
+- **Table Booking**: Accept table reservations from mobile app
+- **Dine-In Orders**: Process orders for customers dining in
+- **Table Status**: Real-time table availability tracking
+- **Integration**: Seamless integration with existing POS system
+
+## 🚀 Recent Updates
+
+### Table Booking Implementation
+- Added `dine_in` business setting for enabling/disabling table bookings
+- Enhanced order placement API to handle table information
+- Updated configuration API to include dine-in availability
+- Added table availability API for mobile app integration
+- Automatic table order creation for dine-in orders
+- Enhanced admin panel with dine-in order management
+
+### API Enhancements
+- **New Endpoint**: `/api/v1/tables/available` - Get available tables for mobile app
+- **Enhanced**: `/api/v1/config` - Now includes dine-in configuration
+- **Enhanced**: `/api/v1/customer/order/place` - Supports table booking data
+
+### Database Updates
+- Orders table now stores `table_id` and `number_of_people` for dine-in orders
+- Automatic creation of `table_orders` entries for table bookings
+- Full integration with existing table management system
+
+## 🛠️ Installation
+
+1. Clone the repository
+2. Install dependencies: `composer install`
+3. Configure environment: Copy `.env.example` to `.env`
+4. Set up database configuration
+5. Run migrations: `php artisan migrate`
+6. Seed database: `php artisan db:seed`
+7. Configure web server to point to `public` directory
+
+## 📱 Mobile App Integration
+
+This admin panel works seamlessly with the BOCS Pizza mobile app, providing:
+- Table booking functionality
+- Real-time table availability
+- Dine-in order processing
+- Integrated POS system
+
+## 🔧 Configuration
+
+### Enable Table Booking
+1. Go to **Business Settings** > **Restaurant Setup**
+2. Enable the **Dine In** option
+3. Configure your restaurant tables in **Table Management**
+4. The mobile app will automatically show table booking options
+
+## 📊 System Requirements
+
+- PHP 8.0+
+- MySQL 5.7+
+- Laravel 9.x
+- Composer
+- Web server (Apache/Nginx)
+
+## 🤝 Support
+
+For technical support and feature requests, please contact the development team.
+
+---
+
+**BOCS Pizza Admin Panel** - Comprehensive restaurant management with advanced table booking capabilities.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
