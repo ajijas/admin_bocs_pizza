@@ -1,0 +1,43 @@
+importScripts('https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js');
+
+firebase.initializeApp({
+    apiKey: "YOUR_FIREBASE_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
+});
+
+const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(function (payload) {
+    return self.registration.showNotification(payload.data.title, {
+        body: payload.data.body ? payload.data.body : '',
+        icon: payload.data.icon ? payload.data.icon : ''
+    });
+});
+
+/*
+SETUP INSTRUCTIONS:
+1. Copy this file to firebase-messaging-sw.js
+2. Replace the placeholder values with your actual Firebase configuration:
+   - YOUR_FIREBASE_API_KEY: Your Firebase API key
+   - YOUR_PROJECT_ID: Your Firebase project ID
+   - YOUR_SENDER_ID: Your Firebase messaging sender ID
+   - YOUR_APP_ID: Your Firebase app ID
+   - YOUR_MEASUREMENT_ID: Your Google Analytics measurement ID
+
+3. Get these values from your Firebase Console:
+   - Go to https://console.firebase.google.com/
+   - Select your project
+   - Go to Project Settings > General
+   - Scroll down to "Your apps" section
+   - Click on the web app to see the config
+
+SECURITY NOTE:
+- Never commit the actual firebase-messaging-sw.js file with real credentials
+- Always use environment variables or secure configuration management
+- The firebase-messaging-sw.js file is added to .gitignore to prevent accidental commits
+*/

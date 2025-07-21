@@ -16,3 +16,9 @@ yarn-error.log
 /storage/update.zip
 /storage/temp/mpdf*
 /storage/fonts/*
+
+# Firebase configuration with sensitive data
+firebase-messaging-sw.js
+
+# Other sensitive configuration files
+/config/firebase.php
